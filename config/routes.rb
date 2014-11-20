@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :feeds
+
+  resources :accounts, only: [:show]
+
+  resources :tweets, only: [:create]
+
+  resources :users
+
+  resources :groups
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

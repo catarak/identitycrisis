@@ -1,0 +1,5 @@
+<%= form_tag(tweets_path) do %>
+  <%= label_tag(:tweet, "Enter your tweet here") %>
+  <%= text_area_tag(:tweet) %>
+  <%= submit_tag("Send Tweet") %>
+<% end %>

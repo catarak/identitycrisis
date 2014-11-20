@@ -36,6 +36,7 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'pundit'
+#adds pundit, yo. c'mon, this is obvious.
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

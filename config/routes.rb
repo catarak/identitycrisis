@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :feeds
 
-  resources :accounts, only: [:show]
-
-  resources :tweets, only: [:create]
+  resources :accounts, only: [:show] do 
+    resources :tweets, only: [:create]
+  end
 
   resources :users
 

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta1'
+gem 'rails', '4.2.0.beta4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -37,6 +37,10 @@ gem 'rails-html-sanitizer', '~> 1.0'
 
 gem 'pundit'
 #adds pundit, yo. c'mon, this is obvious.
+
+gem 'twitter'
+
+gem 'figaro'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

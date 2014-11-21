@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :users
   root "visitors#index"
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :feeds
   resources :accounts, only: [:show] do
     resources :tweets, only: [:create]
-
-
   end
 
   resources :users

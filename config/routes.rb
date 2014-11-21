@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
   root "visitors#index"
-  resources :feeds
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signin' => 'sessions#new', :as => :signin
+  get '/signout' => 'sessions#destroy', :as => :signout
+  get '/auth/failure' => 'sessions#failure'
 
+  resources :feeds
   resources :accounts, only: [:show] do
   resources :tweets, only: [:create]
   end

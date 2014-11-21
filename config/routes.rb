@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :users
   root "visitors#index"
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/signin' => 'sessions#new', :as => :signin
-  get '/signout' => 'sessions#destroy', :as => :signout
-  get '/auth/failure' => 'sessions#failure'
+  # get '/auth/:provider/callback' => 'sessions#create'
+  # get '/signin' => 'sessions#new', :as => :signin
+  # get '/signout' => 'sessions#destroy', :as => :signout
+  # get '/auth/failure' => 'sessions#failure'
 
   resources :feeds
   resources :accounts, only: [:show] do
     resources :tweets, only: [:create]
   end
-
-  resources :users
 
   resources :groups
 

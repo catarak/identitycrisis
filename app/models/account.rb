@@ -9,4 +9,7 @@ class Account < ActiveRecord::Base
     @twitter_api ||= TwitterApi.new(self.access_token, self.access_token_secret)
   end
 
+  def show
+    #add a before filter to check if user is priviledged
+  end
 end

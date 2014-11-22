@@ -35,17 +35,23 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pundit'
+#gem 'pundit'
 #adds pundit, yo. c'mon, this is obvious.
+#we don't need pundit anymore I don't think
 
 gem 'twitter'
 
 gem 'figaro'
 
+#and we don't need omniauth?
 gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'devise'
+
+#adding bootstrapb
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

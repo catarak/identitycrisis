@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122174410) do
+ActiveRecord::Schema.define(version: 20141122220427) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141122174410) do
     t.datetime "updated_at",          null: false
     t.string   "access_token"
     t.string   "access_token_secret"
+    t.integer  "group_id"
   end
 
   create_table "feeds", force: true do |t|

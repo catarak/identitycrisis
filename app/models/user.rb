@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?(group)
+    self.memberships.find_by(group_id: group.id).admin?
+  end
+
 end

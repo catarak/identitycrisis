@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # get '/auth/failure' => 'sessions#failure'
 
   resources :feeds
-  resources :accounts, only: [:show] do
+  resources :accounts, only: [:show, :new, :create] do
     resources :tweets, only: [:create]
   end
 

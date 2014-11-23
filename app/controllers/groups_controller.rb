@@ -5,4 +5,20 @@ class GroupsController < ApplicationController
     @members = User.joins(:memberships).where(memberships: {group_id: params[:id]})
     @accounts = Account.where(group_id: params[:id])
   end
+
+  def new
+    @group = Group.new
+  end
+
+  def create
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to group_path(@group)
+    end
+  end
+
+  private
+    def group_params
+      params.require(:group).permit(:name, accounts_attributes: [:name, :access_token, :access_token_secret])
+    end
 end

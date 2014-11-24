@@ -20,15 +20,18 @@
     <!-- don't list members whose invitations are pending? -->
     <h2>Members</h2>
     <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
+      <%= hidden_field_tag 'group_id', @group.id %>
       <%= button_tag "Add User", id: "new-user" %>
     <% end %>
-    <% @members.each do |member| %>
-      <li>
-        <%= member.name %>
-        <% if member.memberships.find_by(group_id: @group.id).admin? %>
-            (Admin)
-        <% end %>
-      </li>
-    <% end %>
+    <ul id="members">
+      <% @members.each do |member| %>
+        <li>
+          <%= member.identifier %>
+          <% if member.memberships.find_by(group_id: @group.id).admin? %>
+              (Admin)
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

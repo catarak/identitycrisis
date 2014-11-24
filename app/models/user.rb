@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
     self.memberships.find_by(group_id: group.id).admin?
   end
 
+  def identifier
+    self.name || self.email
+  end
 end

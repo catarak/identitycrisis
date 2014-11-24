@@ -1,0 +1,6 @@
+<li>
+  <%= @user.identifier %>
+  <% if @user.admin?(@group) %>
+      (Admin)
+  <% end %>
+</li>

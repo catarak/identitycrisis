@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :invitations => 'users/invitations' }
   resources :users
   root "visitors#index"
   # get '/auth/:provider/callback' => 'sessions#create'

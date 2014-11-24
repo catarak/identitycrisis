@@ -12,13 +12,15 @@ class Users::InvitationsController < Devise::InvitationsController
     yield resource if block_given?
 
     #this is broken since we are making an ajax call
-    if resource_invited
-      Membership.create(user_id: self.resource.id, group_id: params[:group_id], role: :regular)
-      @group = Group.find(params[:group_id])
-      @user = self.resource
+    #if resource_invited
 
-    else
-      respond_with_navigational(resource) { render :new }
-    end
+    #if user already exists, invite will fail, but still want to add them to the group
+    Membership.create(user_id: self.resource.id, group_id: params[:group_id], role: :regular)
+    @group = Group.find(params[:group_id])
+    @user = self.resource
+
+    # else
+    #   respond_with_navigational(resource) { render :new }
+    # end
   end
 end

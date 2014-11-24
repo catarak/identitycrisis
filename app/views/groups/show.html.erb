@@ -8,7 +8,7 @@
     <h2>Accounts</h2>
     <%= form_tag(new_account_path, method: "get", remote: true) do %>
       <%= hidden_field_tag 'group_id', @group.id %>
-      <span><button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong></span>
+      <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
     <% end %>
     <ul id="accounts">
       <% @accounts.each do |account| %>
@@ -21,7 +21,7 @@
     <h2>Members</h2>
     <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
       <%= hidden_field_tag 'group_id', @group.id %>
-      <span><button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong></span>
+      <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
     <% end %>
     <ul id="members">
       <% @members.each do |member| %>

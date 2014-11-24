@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Identitycrisis</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render "layouts/navigation_links" %>
-<div class="container">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-</div>
+  <head>
+    <meta name="twitter:widgets:csp" content="on">
+    <title>Identitycrisis</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
 
+  <body>
+  <%= render "layouts/navigation_links" %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
 
-</body>
+  </body>
 </html>
+
+

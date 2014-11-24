@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def identifier
     self.name || self.email
   end
+
+  def pending?
+    self.sign_in_count == 0
+  end
 end

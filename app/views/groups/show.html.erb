@@ -4,11 +4,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-6" id="accounts-container">
     <h2>Accounts</h2>
     <%= form_tag(new_account_path, method: "get", remote: true) do %>
       <%= hidden_field_tag 'group_id', @group.id %>
-      <%= button_tag "Add Account", id: "new-account" %>
+      <span><button id="new-account"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> add account</span>
     <% end %>
     <ul id="accounts">
       <% @accounts.each do |account| %>
@@ -16,12 +16,12 @@
       <% end %>
     </ul>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" id="members-container">
     <!-- don't list members whose invitations are pending? -->
     <h2>Members</h2>
     <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
       <%= hidden_field_tag 'group_id', @group.id %>
-      <%= button_tag "Add User", id: "new-user" %>
+      <span><button id="new-user"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> add member</span>
     <% end %>
     <ul id="members">
       <% @members.each do |member| %>

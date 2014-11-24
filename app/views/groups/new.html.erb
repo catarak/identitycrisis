@@ -1,43 +1,24 @@
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-10">
     <h1>New Group</h1>
-    <div class="well bs-component">
-      <%= form_for(@group, class: "form-horizontal") do |f| %>
+      <%= nested_form_for(@group, class: "form-horizontal") do |f| %>
         <fieldset>
-          <div class="form-group">
-            <%= f.label :name, class: "col-lg-4 control-label" %>
-            <div class="col-lg-7">
-              <%= f.text_field :name, class: "form-control" %>
+            <div class="form-group">
+              <%= f.label :name, class: "col-lg-3 control-label" %>
+              <div class="col-lg-9">
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-4 control-label" >Add Account(s)</label>
-            <div class="col-lg-7">
-              <button>+</button>
+          <%= f.fields_for :accounts %>
+          <p><%= f.link_to_add "", :accounts, class: "glyphicon glyphicon-plus btn btn-primary" %> <strong>add another account</strong></p>
+          <!-- <div class="form-group">
+            <div class="col-lg-11">
+              <%#= f.link_to_add "+", :accounts %> add another account
+              <span><button id="new-account-form", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add another account</strong></span>
             </div>
-          </div>
-          <%= f.fields_for :accounts do |accounts_form| %>
-              <div class="form-group">
-                <%= accounts_form.label :name, class: "col-lg-4 control-label" %>
-                <div class="col-lg-7">
-                  <%= accounts_form.text_field :name, class: "form-control" %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= accounts_form.label :access_token, class: "col-lg-4 control-label" %>
-                <div class="col-lg-7">
-                  <%= accounts_form.text_field :access_token, class: "form-control" %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= accounts_form.label :access_token_secret, class: "col-lg-4 control-label" %>
-                <div class="col-lg-7">
-                  <%= accounts_form.text_field :access_token_secret, class: "form-control" %>
-                </div>
-              </div>
-          <% end %>
+          </div> -->
           <div class="form-group">
-            <div class="col-lg-7 col-lg-offset-4">
+            <div class="col-lg-9 col-lg-offset-4">
               <%= f.submit %>
             </div>
           </div>

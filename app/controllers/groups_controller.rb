@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    #@group.accounts.build
   end
 
   def create

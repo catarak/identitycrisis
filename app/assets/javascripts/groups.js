@@ -1,5 +1,6 @@
 $(function() {
   cancelAccountListener();
+  cancelMemberListener();
 });
 
 function cancelAccountListener() {
@@ -7,4 +8,11 @@ function cancelAccountListener() {
     e.preventDefault();
     $('#new_account').remove();
   });
+}
+
+function cancelMemberListener() {
+  $('#members-container').on('click', '#cancel-member', function(e) {
+    e.preventDefault();
+    $('#new_user').remove();
+  })
 }

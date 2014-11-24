@@ -17,8 +17,11 @@
     </ul>
   </div>
   <div class="col-md-6">
+    <!-- don't list members whose invitations are pending? -->
     <h2>Members</h2>
-    <button id="new-member">Add Member</button>
+    <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
+      <%= button_tag "Add User", id: "new-user" %>
+    <% end %>
     <% @members.each do |member| %>
       <li>
         <%= member.name %>

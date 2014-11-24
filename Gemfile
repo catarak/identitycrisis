@@ -48,6 +48,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.4'
 
 #adding bootstrapb
 gem 'bootstrap-sass', '~> 3.2.0'

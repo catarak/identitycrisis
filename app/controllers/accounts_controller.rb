@@ -1,20 +1,23 @@
 class AccountsController < ApplicationController
   protect_from_forgery
-  before_filter :load_tweets
 
-  def load_tweets
-# @client = client.new
-    # client = Twitter::Client.new
-    $tweets.user_timeline('runsammrun', [0..4])
-    # @tweets = Twitter.user_timeline[0..4]
-    # @tweets = Twitter.user_timeline[0..4]
-    #max of 5
-  end
+#   def load_tweets
+# # @client = client.new
+#     # client = Twitter::Client.new
+#     $tweets.user_timeline('runsammrun', [0..4])
+#     # @tweets = Twitter.user_timeline[0..4]
+#     # @tweets = Twitter.user_timeline[0..4]
+#     #max of 5
+#   end
 
+    # @recent_tweets = TwitterApi.new(@account.access_token, @account.access_token_secret).grab_10_most_recent(@account.name)
 
 
   def show
     @account = Account.find(params[:id])
+    @tweets = TwitterApi.new(@account.access_token, @account.access_token_secret).user_timeline[0..4]
+    # @client = client.new
+    # client = Twitter::Client.new
   end
 
   def new

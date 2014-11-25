@@ -11,9 +11,35 @@
 
 .customizable-border {
   border: 1px solid #e8e8e8;
+
 }
 
 .profile-image {
   padding: 0;
   border-radius: 10px;
+}
+
+.header {
+  border-radius: 6px 6px 0 0 ;
+  height: 50px;
+  border: 1px solid #e8e8e8;
+
+}
+.footer {
+  border-radius: 0 0 6px 6px ;
+  height: 50px;
+  border: 1px solid #e8e8e8;
+}
+
+.title {
+  height: 200px;
+  line-height: 5px;
+  padding-left: 20px;
+  vertical-align: text-top;
+}
+
+.actual_tweet {
+  line-height: 100%;
+  vertical-align: text-top;
+  margin-top: -7px
 }

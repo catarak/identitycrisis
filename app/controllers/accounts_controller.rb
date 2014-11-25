@@ -1,6 +1,8 @@
 class AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
+    @recent_tweets = TwitterApi.new(@account.access_token, @account.access_token_secret).grab_10_most_recent(@account.name)
+    binding.pry
   end
 
   def new

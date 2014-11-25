@@ -1,7 +1,7 @@
 class TwitterApi
 
   attr_accessor :client, :stream
-  
+
   def initialize(access_token, access_secret)
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_KEY']
@@ -22,5 +22,8 @@ class TwitterApi
     @client.update(tweet)
   end
 
+  def grab_10_most_recent(username)
+    client.user_timeline(username).take(10)
+  end
 
 end

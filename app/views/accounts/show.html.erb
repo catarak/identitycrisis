@@ -1,19 +1,26 @@
 <h1><%= @account.name %></h1>
 
 <div class="row">
-  <div class="col-md-6">
-    <%= form_tag(account_tweets_path(@account)) do %>
-     <%= label_tag(:tweet, "Enter your tweet here") %>
-     <%= text_area_tag(:tweet, nil, class: "form-control", rows: 3) %>
-     <%= submit_tag("Send Tweet", class: 'btn btn-default') %>
-    <% end %>
-  </div>
+  <!-- <div class="col-md-6">
+    <%# form_tag(account_tweets_path(@account)) do %>
+     <%# label_tag(:tweet, "Enter your tweet here") %>
+     <%# text_area_tag(:tweet, nil, class: "form-control", rows: 3) %>
+     <%# submit_tag("Send Tweet", class: 'btn btn-default') %>
+    <%# end %>
+  </div> -->
 
   <div class="col-md-6">
     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/<%= @account.name %>" data-widget-id="536951325880496128">Tweets by <%= @account.name %></a>
   </div>
+  <div class="col-md-6">
+    <% @recent_tweets.each do |tweet| %>
+      <div class="tweet-box">
+        <p><%= tweet.text %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%=@stream%>
+
 
 

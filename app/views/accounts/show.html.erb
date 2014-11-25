@@ -12,10 +12,18 @@
   <div class="col-md-6">
     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/<%= @account.name %>" data-widget-id="536951325880496128">Tweets by <%= @account.name %></a>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 timeline">
     <% @recent_tweets.each do |tweet| %>
-      <div class="tweet-box">
-        <p><%= tweet.text %></p>
+      <div class="tweet customizable-border">
+        <div class="col-md-2 profile-image">
+          <%= image_tag(tweet[:user][:profile_image_url], size: "48") %>
+        </div>
+        <div class = "col-md-0">
+          <p><b><%=tweet[:user][:name]%></b></p>
+          <p><%=tweet.text %></p>
+        </div>
+        <div class= "col-md-1">
+        </div>
       </div>
     <% end %>
   </div>

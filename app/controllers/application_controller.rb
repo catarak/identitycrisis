@@ -20,11 +20,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :name
     end
 
-    def current_member?
-      @is_member = User.joins(:memberships).where(memberships: {group_id: params[:id]}).find_by(memberships: {user_id:current_user.id})
-      if !@is_member
-        redirect_to root_url, :alert => "You are not part of this group!!"
-      end
-    end
+
 
 end

@@ -27,8 +27,4 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def correct_account?
-      @account = Account.find(params[:id])
-      
-
 end

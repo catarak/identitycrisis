@@ -6,9 +6,11 @@
 <div class="row">
   <div class="col-md-6" id="accounts-container">
     <h2>Accounts</h2>
-    <%= form_tag(new_account_path, method: "get", remote: true) do %>
-      <%= hidden_field_tag 'group_id', @group.id %>
-      <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
+    <% if current_user.admin?(@group) %>
+      <%= form_tag(new_account_path, method: "get", remote: true) do %>
+        <%= hidden_field_tag 'group_id', @group.id %>
+        <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
+      <% end %>
     <% end %>
     <ul id="accounts" class="no-bullets">
       <% @accounts.each do |account| %>
@@ -17,11 +19,12 @@
     </ul>
   </div>
   <div class="col-md-6" id="members-container">
-    <!-- don't list members whose invitations are pending? -->
     <h2>Members</h2>
-    <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
-      <%= hidden_field_tag 'group_id', @group.id %>
-      <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
+    <% if current_user.admin?(@group) %>
+      <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
+        <%= hidden_field_tag 'group_id', @group.id %>
+        <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
+      <% end %>
     <% end %>
     <ul id="members" class="no-bullets">
       <% @members.each do |member| %>

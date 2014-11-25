@@ -14,5 +14,5 @@ function cancelMemberListener() {
   $('#members-container').on('click', '#cancel-member', function(e) {
     e.preventDefault();
     $('#new_user').remove();
-  })
+  });
 }

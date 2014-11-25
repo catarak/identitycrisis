@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+
+  before_filter :current_member?, :except => [:index]
+
   def show
     #add a before filter to check if user is privileged to see group
     @group = Group.find(params[:id])

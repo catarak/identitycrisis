@@ -20,5 +20,11 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name
     end
 
+    def current_member?
+      @members = User.joins(:memberships).where(memberships: {group_id: params[:id]})
+      unless @members.include?(current_user)
+        redirect_to root_url, :alert => "Access denied!!"
+      end
+    end
 
 end

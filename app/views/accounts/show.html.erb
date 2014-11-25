@@ -13,3 +13,12 @@
     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/<%= @account.name %>" data-widget-id="536951325880496128">Tweets by <%= @account.name %></a>
   </div>
 </div>
+
+<section id="tweets">
+  <ul>
+    <% @tweets.each do |tweet| %>
+      <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+  </ul>
+</section>
+
+

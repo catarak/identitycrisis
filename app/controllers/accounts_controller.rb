@@ -1,4 +1,18 @@
 class AccountsController < ApplicationController
+  protect_from_forgery
+  before_filter :load_tweets
+
+  def load_tweets
+# @client = client.new
+    # client = Twitter::Client.new
+    $tweets.user_timeline('runsammrun', [0..4])
+    # @tweets = Twitter.user_timeline[0..4]
+    # @tweets = Twitter.user_timeline[0..4]
+    #max of 5
+  end
+
+
+
   def show
     @account = Account.find(params[:id])
   end
@@ -18,8 +32,11 @@ class AccountsController < ApplicationController
     end
   end
 
+
+
   private
-    def account_params
-      params.require(:account).permit(:name, :access_token, :access_token_secret, :group_id)
-    end
+  def account_params
+    params.require(:account).permit(:name, :access_token, :access_token_secret, :group_id)
+  end
 end
+

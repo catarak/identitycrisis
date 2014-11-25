@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
     end
 
     def current_member?
-      @members = User.joins(:memberships).where(memberships: {group_id: params[:id]})
-      unless @members.include?(current_user)
+      @is_member = User.joins(:memberships).where(memberships: {group_id: params[:id]}).find_by(memberships: {user_id:current_user.id})
+      if !@is_member
         redirect_to root_url, :alert => "You are not part of this group!!"
       end
     end

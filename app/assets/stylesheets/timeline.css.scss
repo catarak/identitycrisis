@@ -16,7 +16,10 @@
 
 .profile-image {
   padding: 0;
-  border-radius: 10px;
+}
+
+.profile_icon {
+  border-radius: 5px;
 }
 
 .header {
@@ -42,4 +45,8 @@
   line-height: 100%;
   vertical-align: text-top;
   margin-top: -7px
+}
+
+.col-md-9 {
+  padding-left: 0px;
 }

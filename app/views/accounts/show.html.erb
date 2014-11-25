@@ -4,7 +4,7 @@
 <div class="col-md-6">
     <%= form_tag(account_tweets_path(@account)) do %>
      <%= label_tag(:tweet, "Enter your tweet here") %>
-     <%= text_area_tag(:tweet, nil, class: "form-control", rows: 3) %>
+     <%= text_area_tag(:tweet, nil, class: "form-control", rows: 3, maxlength: 140) %>
      <%= submit_tag("Send Tweet", class: 'btn btn-default') %>
     <% end %>
   </div>

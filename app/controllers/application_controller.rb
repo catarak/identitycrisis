@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     def current_member?
       @members = User.joins(:memberships).where(memberships: {group_id: params[:id]})
       unless @members.include?(current_user)
-        redirect_to root_url, :alert => "Access denied!!"
+        redirect_to root_url, :alert => "You are not part of this group!!"
       end
     end
 

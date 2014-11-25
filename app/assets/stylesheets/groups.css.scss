@@ -1,3 +1,18 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0; 
+  margin-left: 0;
+}
+
+#members,#accounts {
+  margin-top: 10px;
+}
+
+#members li,#accounts li {
+  font-size: large;
+  margin: 5px 0;
+}

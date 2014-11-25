@@ -10,7 +10,7 @@
       <%= hidden_field_tag 'group_id', @group.id %>
       <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
     <% end %>
-    <ul id="accounts">
+    <ul id="accounts" class="no-bullets">
       <% @accounts.each do |account| %>
         <li><%= link_to account.name, account_path(account) %></li>
       <% end %>
@@ -23,7 +23,7 @@
       <%= hidden_field_tag 'group_id', @group.id %>
       <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
     <% end %>
-    <ul id="members">
+    <ul id="members" class="no-bullets">
       <% @members.each do |member| %>
         <li>
           <%= member.identifier %>

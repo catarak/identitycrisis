@@ -27,4 +27,11 @@ class GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(:name, accounts_attributes: [:name, :access_token, :access_token_secret])
     end
+
+    def current_member?
+      @is_member = User.joins(:memberships).where(memberships: {group_id: params[:id]}).find_by(memberships: {user_id:current_user.id})
+      if !@is_member
+        redirect_to root_url, :alert => "You are not part of this group!!"
+      end
+    end
 end

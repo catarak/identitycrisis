@@ -29,4 +29,8 @@ class TwitterApi
     @client.user.profile_image_uri
   end
 
+  def profile_image_uri
+    @client.user.profile_image_uri
+  end
+
 end

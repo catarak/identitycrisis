@@ -81,6 +81,7 @@ GEM
       thor (~> 0.14)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    gravatar_image_tag (1.2.0)
     hashie (3.3.1)
     hike (1.2.3)
     http (0.6.3)
@@ -225,6 +226,7 @@ DEPENDENCIES
   devise
   devise_invitable (~> 1.3.4)
   figaro
+  gravatar_image_tag
   jbuilder (~> 2.0)
   jquery-rails
   nested_form

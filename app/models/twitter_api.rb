@@ -12,4 +12,8 @@ class TwitterApi
     @client.update(tweet)
   end
 
+  def profile_image_uri
+    @client.user.profile_image_uri
+  end
+
 end

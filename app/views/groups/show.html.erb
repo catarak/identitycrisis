@@ -12,11 +12,20 @@
         <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
       <% end %>
     <% end %>
-    <ul id="accounts" class="no-bullets">
-      <% @accounts.each do |account| %>
-        <li><%= link_to account.name, account_path(account) %></li>
-      <% end %>
-    </ul>
+    <table id="accounts">
+      <tbody>
+        <% @accounts.each do |account| %>
+          <tr>
+            <td>
+              <img class="avatar" src="<%= account.twitter_api.profile_image_uri %>">
+            </td>
+            <td>
+              <%= link_to account.name, account_path(account) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
   <div class="col-md-6" id="members-container">
     <h2>Members</h2>
@@ -26,15 +35,22 @@
         <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
       <% end %>
     <% end %>
-    <ul id="members" class="no-bullets">
-      <% @members.each do |member| %>
-        <li>
-          <%= member.identifier %>
-          <% if member.memberships.find_by(group_id: @group.id).admin? %>
-              (Admin)
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <table id="members">
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <td>
+              <img class="avatar" src="<%= gravatar_image_url(member.email, filetype: :png, rating: 'pg', size: 40, secure:false ) %>">
+            </td>
+            <td>
+              <%= member.identifier %>
+              <% if member.memberships.find_by(group_id: @group.id).admin? %>
+                  (Admin)
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

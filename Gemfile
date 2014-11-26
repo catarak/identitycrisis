@@ -69,6 +69,8 @@ group :development, :test do
 
   gem 'pry'
 
+  gem 'did_you_mean'
+
 
 end
 

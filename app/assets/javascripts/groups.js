@@ -1,6 +1,6 @@
 $(function() {
-  cancelAccountListener();
   cancelMemberListener();
+  cancelAccountListener();
 });
 
 function cancelAccountListener() {

@@ -23,10 +23,10 @@ en:
   hello: "Hello world"
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: "30s"
       less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
+        one:   "just now"
+        other: "%{count}s"
       x_seconds:
         one:   "1s"
         other: "%{count} seconds"

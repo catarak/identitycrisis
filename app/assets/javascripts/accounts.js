@@ -16,6 +16,27 @@ $(function() {
   });
 });
 
+$('.post form').bootstrapValidator({
+    fields: {
+        'post[body]': {
+            validators: {
+                notEmpty: {
+                    message: 'Post content is required'
+                },
+                stringLength: {
+                    message: 'Post content must be less than 120 characters',
+                    max: function (value, validator, $field) {
+                        return 120 - (value.match(/\r/g) || []).length;
+                    }
+                }
+            }
+        }
+    }
+});
+
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
+type="text/javascript" src="/path/to/jquery/jquery-1.10.2.min.js";
+type="text/javascript" src="/path/to/bootstrap/js/bootstrap.min.js";
+type="text/javascript" src="/path/to/dist/js/bootstrapValidator.js";
 

@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
   private
     def group_params
-      params.require(:group).permit(:name, accounts_attributes: [:name, :access_token, :access_token_secret])
+      params.require(:group).permit(:name, accounts_attributes: [:name, :access_token, :access_token_secret, :application_token, :application_token_secret])
     end
 
     def current_member?

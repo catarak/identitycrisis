@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def name
+    [first_name, last_name].compact.join(' ') if first_name && last_name
+  end
+
   def admin?(group)
     self.memberships.find_by(group_id: group.id).admin?
   end

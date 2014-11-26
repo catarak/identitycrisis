@@ -1,20 +1,17 @@
-<h3>Welcome!</h3>
+<h1>Welcome, <%= @name %>!</h1>
 
 <div class="row">
   <div class="col-md-6">
     <% if user_signed_in? %>
       <table>
         <thead>
-          <tr><h4>My Groups</h4></tr>
+          <tr><h2>My Groups</h2></tr>
         </thead>
         <tbody>
           <% @my_groups.each do |group| %>
             <tr>
               <td>
-                <%= link_to group.name, group_path(group) %>
-              </td>
-              <td>
-                <!-- if user is admin, put a pencil here or something -->
+                <h4><%= link_to group.name, group_path(group) %></h4>
               </td>
             </tr>
           <% end %>

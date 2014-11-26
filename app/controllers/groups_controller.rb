@@ -1,6 +1,9 @@
 class GroupsController < ApplicationController
+  before_action :current_member?, :except => [:index, :new, :create]
 
-  before_filter :current_member?, :except => [:index]
+  def index
+    @groups = current_user.groups
+  end
 
   def show
     #add a before filter to check if user is privileged to see group

@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125183213) do
+ActiveRecord::Schema.define(version: 20141126154502) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "access_token"
     t.string   "access_token_secret"
     t.integer  "group_id"
+    t.string   "application_token"
+    t.string   "application_token_secret"
   end
 
   create_table "feeds", force: true do |t|

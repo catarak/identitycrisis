@@ -6,7 +6,7 @@ class Account < ActiveRecord::Base
 
 
   def twitter_api
-    @twitter_api ||= TwitterApi.new(self.access_token, self.access_token_secret)
+    @twitter_api ||= TwitterApi.new(self.application_token, self.application_token_secret, self.access_token, self.access_token_secret)
   end
 
   def show

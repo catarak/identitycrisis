@@ -8,7 +8,7 @@ class VisitorsController < ApplicationController
       @my_groups = Group.joins(:memberships).where(memberships: {user_id: current_user.id})
       @name = current_user.first_name || current_user.email
     else
-      @name = "Visitor"
+      @name = "Stranger"
     end
   end
 

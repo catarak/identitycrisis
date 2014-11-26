@@ -5,6 +5,9 @@ body {
 .no-padding {
   padding: 0 !important;
 }
+.item {
+  background: image-url("bg-featuredapp1.jpg");
+}
 .no-padding-bottom {
   padding-bottom: 0 !important;
 }

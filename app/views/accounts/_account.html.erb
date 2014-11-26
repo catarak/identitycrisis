@@ -1,8 +1,4 @@
-<tr>
-  <td>
-    <img class="avatar" src="<%= @account.twitter_api.profile_image_uri %>">
-  </td>
-  <td>
-    <%= link_to @account.name, account_path(@account) %>
-  </td>
-</tr>
+<li>
+  <img class="avatar" src="<%= @account.twitter_api.profile_image_uri %>">
+  <%= link_to @account.name, account_path(@account) %>
+</li>

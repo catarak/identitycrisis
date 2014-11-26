@@ -1,11 +1,7 @@
-<tr>
-  <td>
-    <img class="avatar" src="<%= gravatar_image_url(@user.email, filetype: :png, rating: 'pg', size: 40, secure:false ) %>">
-  </td>
-  <td>
-    <%= @user.identifier %>
-    <% if @user.memberships.find_by(group_id: @group.id).admin? %>
-        (Admin)
-    <% end %>
-  </td>
-</tr>
+<li>
+  <img class="avatar" src="<%= gravatar_image_url(@user.email, filetype: :png, rating: 'pg', size: 40, secure:false ) %>">
+  <%= @user.identifier %>
+  <% if @user.memberships.find_by(group_id: @group.id).admin? %>
+      (Admin)
+  <% end %>
+</li>

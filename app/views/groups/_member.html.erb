@@ -1,0 +1,7 @@
+<li>
+  <img class="avatar" src="<%= gravatar_image_url(member.email, filetype: :png, rating: 'pg', size: 40, secure:false ) %>">
+  <%= member.identifier %>
+  <% if member.memberships.find_by(group_id: @group.id).admin? %>
+      (Admin)
+  <% end %>
+<li>

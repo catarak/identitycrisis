@@ -67,6 +67,15 @@ body {
 
   /* Navbar positioning foo */
   .navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    height: 100px;
+    -webkit-transition: height 0.3s linear;
+    -moz-transition: height 0.3s linear;
+    transition: height 0.3s linear;
   }
   .navbar-wrapper .container {
     padding-left:  15px;

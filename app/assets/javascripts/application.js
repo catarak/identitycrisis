@@ -19,7 +19,7 @@
 //= require jquery.flexslider-min
 //= require jquery.magnific-popup.min
 //= require jquery.mb.YTPlayer
-//= require jquery.nav
+// require jquery.nav
 //= require jquery.scrollTo
 //= require bootstrap.min
 //= require jqBootstrapValidation

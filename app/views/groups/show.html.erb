@@ -1,56 +1,40 @@
-<div class="row">
-  <div class="col-md-6">
-    <h1><%= @group.name %></h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6" id="accounts-container">
-    <h2>Accounts</h2>
-    <% if current_user.admin?(@group) %>
-      <%= form_tag(new_account_path, method: "get", remote: true) do %>
-        <%= hidden_field_tag 'group_id', @group.id %>
-        <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
-      <% end %>
-    <% end %>
-    <table id="accounts">
-      <tbody>
-        <% @accounts.each do |account| %>
-          <tr>
-            <td>
-              <img class="avatar" src="<%= account.twitter_api.profile_image_uri %>">
-            </td>
-            <td>
-              <%= link_to account.name, account_path(account) %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-6" id="members-container">
-    <h2>Members</h2>
-    <% if current_user.admin?(@group) %>
-      <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
-        <%= hidden_field_tag 'group_id', @group.id %>
-        <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
-      <% end %>
-    <% end %>
-    <table id="members">
-      <tbody>
-        <% @members.each do |member| %>
-          <tr>
-            <td>
-              <img class="avatar" src="<%= gravatar_image_url(member.email, filetype: :png, rating: 'pg', size: 40, secure:false ) %>">
-            </td>
-            <td>
-              <%= member.identifier %>
-              <% if member.memberships.find_by(group_id: @group.id).admin? %>
-                  (Admin)
+<div id="intro">
+  <div class="item background-cover">
+    <div class="container">
+      <div class="row">
+        <div class="carousel-caption-center colour-white">
+          <h1><%= @group.name %></h1>
+          <div class="col-md-6" id="accounts-container">
+            <h2>Accounts</h2>
+            <% if current_user.admin?(@group) %>
+              <%= form_tag(new_account_path, method: "get", remote: true) do %>
+                <%= hidden_field_tag 'group_id', @group.id %>
+                <button id="new-account", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add account</strong>
               <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            <% end %>
+            <ul id="accounts" class="no-bullets">
+              <% @accounts.each do |account| %>
+                <%= render partial: 'account', locals: {account: account} %>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col-md-6" id="members-container">
+            <h2>Members</h2>
+            <% if current_user.admin?(@group) %>
+              <%= form_tag(new_invitation_path(@user), method: "get", remote: true) do %>
+                <%= hidden_field_tag 'group_id', @group.id %>
+                <button id="new-user", class="btn btn-primary btn-circle"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> <strong>add member</strong>
+              <% end %>
+            <% end %>
+            <ul id="members" class="no-bullets">
+              <% @members.each do |member| %>
+                <%= render partial: 'member', locals: {member: member} %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay-bg"></div>
   </div>
 </div>
